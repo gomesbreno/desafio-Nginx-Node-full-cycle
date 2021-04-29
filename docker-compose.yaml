@@ -4,6 +4,7 @@ services:
   proxy:
     build:
       context: nginx
+    container_name: proxy
     restart: unless-stopped
     ports:
       - 8080:80
@@ -16,11 +17,13 @@ services:
     build:
       context: node
     container_name: app
+    restart: always
     entrypoint: node index.js
     networks:
       - node-network
     volumes:
       - ./node:/usr/src/app
+      - /usr/src/app/node_modules
     tty: true
     depends_on:
       - db

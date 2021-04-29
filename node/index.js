@@ -57,7 +57,6 @@ const getPeopleList = (res) => {
 app.get("/", (req, res) => {
   insertNewPerson();
   getPeopleList(res);
-  // res.send(`<h1>Full Cycle Rocks!</h1><br/>`);
 });
 
 app.listen(port, () => {
