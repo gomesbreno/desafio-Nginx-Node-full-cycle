@@ -16,8 +16,11 @@ connection.connect((err) => {
   var sql =
     "CREATE TABLE people (id int auto_increment,name VARCHAR(255),primary key (id))";
   connection.query(sql, (err) => {
-    if (err) throw err;
-    console.log("Table created");
+    if (err) {
+      console.log("Tabela já criada");
+    } else {
+      console.log("Table created");
+    }
   });
 });
 
